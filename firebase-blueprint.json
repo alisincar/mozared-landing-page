@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "PreRegistration": {
+      "title": "PreRegistration",
+      "description": "User pre-registration data including contact info and legal consents.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "phone": {
+          "type": "string",
+          "description": "The user's phone number."
+        },
+        "consentKVKK": {
+          "type": "boolean",
+          "description": "Whether the user accepted the KVKK terms."
+        },
+        "consentMarketing": {
+          "type": "boolean",
+          "description": "Whether the user accepted marketing communications."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of when the registration was created."
+        }
+      },
+      "required": ["email", "phone", "consentKVKK", "consentMarketing", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/pre_registrations/{registrationId}": {
+      "schema": {
+        "$ref": "#/entities/PreRegistration"
+      },
+      "description": "Stores all pre-registration entries."
+    }
+  }
+}

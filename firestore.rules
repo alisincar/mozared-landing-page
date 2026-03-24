@@ -1,0 +1,65 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: pre_registrations
+    // Document ID: Auto-generated
+    // Fields:
+    //   - email: string (required, valid email) - The user's email address
+    //   - phone: string (required, length 10-15) - The user's phone number
+    //   - consentKVKK: boolean (required, must be true) - KVKK consent
+    //   - consentMarketing: boolean (required, must be true) - Marketing consent
+    //   - createdAt: timestamp (required) - Creation time
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+    
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+    
+    function isValidPhone(phone) {
+      return phone is string && phone.size() >= 10 && phone.size() <= 15;
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+    
+    function isValidPreRegistration(data) {
+      return hasRequiredFields(['email', 'phone', 'consentKVKK', 'createdAt']) &&
+             isValidEmail(data.email) &&
+             isValidPhone(data.phone) &&
+             data.consentKVKK == true &&
+             data.consentMarketing == true &&
+             data.createdAt == request.time;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /pre_registrations/{registrationId} {
+      // Anyone can create a pre-registration (unauthenticated is allowed for landing pages)
+      // but they MUST provide valid data including KVKK consent.
+      allow create: if isValidPreRegistration(request.resource.data);
+      
+      // No one can read, update, or delete pre-registrations from the client.
+      // Only Firebase Admins (via Admin SDK) can access this data.
+      allow read, update, delete: if false;
+    }
+  }
+}

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mozared - Gerçek Hayatta Sosyalleşmenin Yeni Yolu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo-text">mozared</div>
+            <button class="btn btn-primary open-modal-btn" data-i18n="hero_cta" style="min-height: 32px; font-size: 12px; padding: 0 16px;">Ön Kayıt Ol</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="container hero-container">
+            <div class="hero-visual">
+                <div class="hero-orb"></div>
+                <div class="mock-card card-1">
+                    <div class="mock-avatar"></div>
+                    <div class="mock-info">
+                        <div class="mock-text" data-i18n="mock_1_title">Kahve & Kitap Kulübü</div>
+                        <div class="mock-subtext" data-i18n="mock_1_desc">Bugün, 15:00 • Kadıköy</div>
+                    </div>
+                </div>
+                <div class="mock-card card-2">
+                    <div class="mock-icon"><i class="ph-fill ph-hand-waving"></i></div>
+                    <div class="mock-info">
+                        <div class="mock-text" data-i18n="mock_2_title">Yeni Eşleşme!</div>
+                        <div class="mock-subtext" data-i18n="mock_2_desc">Ortak ilgi: Fotoğrafçılık</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-content reveal">
+                <div class="badge"><i class="ph-fill ph-rocket-launch"></i> <span data-i18n="hero_badge">ÇOK YAKINDA</span></div>
+                <h1 data-i18n="hero_title">Gerçek Hayatta Sosyalleşmenin Yeni Yolu</h1>
+                <p data-i18n="hero_subtitle">Sanal dünyadan çık, gerçek insanlarla tanış, etkinliklere katıl ve anı yaşa. Mozared ile şehrin nabzını tut.</p>
+                <button class="btn btn-primary btn-block open-modal-btn" data-i18n="hero_cta" style="margin-top: 8px;">Ön Kayıt Ol</button>
+                <div class="waitlist-counter reveal delay-1">
+                    <div class="pulse-dot"></div>
+                    <div>🔥 <span class="counter-number" id="waitlistCount">0</span> <span data-i18n="waitlist_text">kişi şimdiden yerini ayırttı!</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card reveal delay-0">
+                    <div class="feature-icon"><i class="ph ph-map-pin"></i></div>
+                    <h3 data-i18n="feature_1_title">Yakın Çevreni Keşfet</h3>
+                    <p data-i18n="feature_1_desc">Sana en uygun insanları ve mekanları anında bul.</p>
+                </div>
+                <div class="feature-card reveal delay-1">
+                    <div class="feature-icon"><i class="ph ph-calendar-star"></i></div>
+                    <h3 data-i18n="feature_2_title">Etkinliklere Katıl</h3>
+                    <p data-i18n="feature_2_desc">Sosyal planların ve topluluk etkinlikleri tek adreste.</p>
+                </div>
+                <div class="feature-card reveal delay-2">
+                    <div class="feature-icon"><i class="ph ph-users-three"></i></div>
+                    <h3 data-i18n="feature_3_title">Anlamlı Bağlantılar</h3>
+                    <p data-i18n="feature_3_desc">Ortak ilgi alanlarına ve gerçek deneyimlere dayalı iletişim kur.</p>
+                </div>
+                <div class="feature-card reveal delay-3">
+                    <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
+                    <h3 data-i18n="feature_4_title">Modern ve Güvenli</h3>
+                    <p data-i18n="feature_4_desc">Senin kontrolünde, premium ve güven veren bir sosyal deneyim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works section">
+        <div class="container">
+            <h2 data-i18n="how_title" class="reveal" style="text-align: center;">Nasıl Çalışır?</h2>
+            <div class="steps-container">
+                <div class="step-item reveal delay-0">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how_1_title">Profilini Oluştur</h3>
+                        <p data-i18n="how_1_desc">İlgi alanlarını, hobilerini ve ne tarz etkinlikler aradığını belirle.</p>
+                    </div>
+                </div>
+                <div class="step-item reveal delay-1">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how_2_title">Keşfet ve Eşleş</h3>
+                        <p data-i18n="how_2_desc">Sana en uygun etkinlikleri ve kafa dengi insanları yapay zeka destekli algoritmamızla bul.</p>
+                    </div>
+                </div>
+                <div class="step-item reveal delay-2">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 data-i18n="how_3_title">Gerçek Hayatta Buluş</h3>
+                        <p data-i18n="how_3_desc">Sanal sohbetleri kısa tut, doğrudan gerçek hayattaki etkinliklere katıl ve anı yaşa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Register Now Section -->
+    <section class="why-now section bg-surface">
+        <div class="container">
+            <div class="why-content reveal">
+                <h2 data-i18n="why_title">Neden Şimdi Kayıt Olmalısın?</h2>
+                <p data-i18n="why_desc">Mozared kapılarını açtığında içeride seni bekleyen ayrıcalıklar olacak. Erken davrananlar topluluğumuzun temelini oluşturacak.</p>
+                <ul class="why-list">
+                    <li>
+                        <i class="ph-fill ph-check-circle"></i>
+                        <div>
+                            <strong data-i18n="why_1_title">İlk Erişim Avantajı</strong>
+                            <span data-i18n="why_1_desc">Uygulama yayına girdiğinde ilk deneyenlerden ol.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph-fill ph-gift"></i>
+                        <div>
+                            <strong data-i18n="why_2_title">Sürpriz Ödüller</strong>
+                            <span data-i18n="why_2_desc">Ön kayıt olanlara özel premium özellikler ve rozetler.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph-fill ph-star"></i>
+                        <div>
+                            <strong data-i18n="why_3_title">Kurucu Topluluk</strong>
+                            <span data-i18n="why_3_desc">İlk üyelerimizden biri olarak platformun kültürüne yön ver.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="ph-fill ph-ticket"></i>
+                        <div>
+                            <strong data-i18n="why_4_title">Özel Etkinlikler</strong>
+                            <span data-i18n="why_4_desc">Sadece üyelere açık gizli buluşmalara katılma şansı.</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="why-action" style="margin-top: 16px; text-align: center;">
+                    <button class="btn btn-primary btn-block open-modal-btn" data-i18n="why_cta">
+                        Hemen Yerini Ayırt
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section">
+        <div class="container">
+            <h2 data-i18n="faq_title" class="reveal">Sıkça Sorulan Sorular</h2>
+            <div class="faq-list">
+                <div class="faq-item reveal delay-0">
+                    <button class="faq-question">
+                        <span data-i18n="faq_1_q">Mozared nedir?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_1_a">Mozared, dijital dünyadan sıyrılıp gerçek hayatta ortak ilgi alanlarına sahip insanlarla buluşmanı sağlayan yeni nesil bir sosyal platformdur.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal delay-1">
+                    <button class="faq-question">
+                        <span data-i18n="faq_2_q">Uygulama ne zaman çıkacak?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_2_a">Şu an kapalı beta sürecindeyiz. Ön kayıt olan kullanıcılarımıza çok yakında özel davetiyeler göndermeye başlayacağız.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal delay-2">
+                    <button class="faq-question">
+                        <span data-i18n="faq_3_q">Ön kayıt olmak ücretli mi?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_3_a">Hayır, ön kayıt tamamen ücretsizdir. Üstelik erken kayıt olanlara özel sürpriz avantajlar sunulacaktır.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_4_q">Hangi şehirlerde kullanılabilecek?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_4_a">Mozared tüm dünyada kullanıma açık olacak! Nerede olursanız olun, etrafınızdaki etkinlikleri ve insanları keşfedebileceksiniz.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_5_q">Etkinlikleri kimler oluşturuyor?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_5_a">Etkinlikler hem Mozared ekibi hem de onaylı topluluk liderleri ve mekan partnerlerimiz tarafından oluşturulmaktadır.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_6_q">Güvenliğimi nasıl sağlıyorsunuz?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_6_a">Tüm kullanıcı profilleri yapay zeka destekli sistemlerimiz ve moderasyon ekibimiz tarafından doğrulanır. Ayrıca etkinlikler güvenilir, halka açık mekanlarda gerçekleşir.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_7_q">Sadece arkadaş bulmak için mi?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_7_a">Hayır, Mozared hem yeni arkadaşlar edinmek hem de romantik eşleşmeler yakalamak veya profesyonel ağınızı (networking) genişletmek için farklı modlar sunar.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_8_q">Profilimi kimler görebilir?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_8_a">Profiliniz sadece sizinle aynı etkinliklere katılan veya ortak ilgi alanlarına sahip olduğunuz eşleştiğiniz kişiler tarafından görüntülenebilir.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_9_q">Yaş sınırı var mı?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_9_a">Evet, platformumuzu kullanabilmek için 18 yaşını doldurmuş olmanız gerekmektedir.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_10_q">Uygulama içi satın alma olacak mı?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_10_a">Temel özellikler her zaman ücretsiz kalacak. Ancak daha gelişmiş filtreleme ve özel etkinliklere erişim için premium üyelik seçenekleri sunacağız.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span data-i18n="faq_11_q">Ön kayıt avantajları tam olarak neler?</span>
+                        <i class="ph ph-caret-down"></i>
+                    </button>
+                    <div class="faq-answer" style="display: none; margin-top: 8px;">
+                        <p data-i18n="faq_11_a">Ön kayıt olanlar, uygulama yayınlandığında ilk giriş hakkına, profilinde sergilenecek özel "Kurucu Üye" rozetine ve ilk premium etkinliklere ücretsiz katılım şansına sahip olacaklar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="logo-text">mozared</div>
+                <div class="footer-social">
+                    <a href="#"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph-fill ph-tiktok-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer_rights">&copy; 2024 Mozared. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body custom-form-body">
+                <div class="form-wrapper">
+                    <h2 data-i18n="modal_title" style="text-align:center; margin-bottom: 8px;">Yerini Ayırt</h2>
+                    <p data-i18n="modal_desc" style="text-align:center; margin-bottom: 24px; color: var(--text-secondary); font-size: 12px;">Açılış duyurusu ve sürpriz ödüller için iletişim bilgilerini bırak.</p>
+                    
+                    <form id="preRegisterForm">
+                        <div class="form-group">
+                            <label for="email" data-i18n="form_email_label">E-posta Adresi *</label>
+                            <input type="email" id="email" required placeholder="ornek@email.com" data-i18n-placeholder="form_email_placeholder">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="form_phone_label">Telefon Numarası *</label>
+                            <input type="tel" id="phone" required placeholder="05XX XXX XX XX" data-i18n-placeholder="form_phone_placeholder">
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="kvkk" required>
+                            <label for="kvkk" data-i18n="form_kvkk"><a href="#" style="color: var(--brand-primary); text-decoration: underline;">KVKK Aydınlatma Metni</a>'ni okudum ve kişisel verilerimin işlenmesine açık rıza gösteriyorum. *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="marketing" required>
+                            <label for="marketing" data-i18n="form_marketing">Tarafıma kampanya ve duyurularla ilgili ticari elektronik ileti gönderilmesine onay veriyorum. *</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn" style="margin-top: 16px;" data-i18n="form_submit">
+                            Ön Kayıt Ol
+                        </button>
+                        <p id="formMessage" style="text-align:center; margin-top: 12px; font-weight: 600; font-size: 13px; display: none;"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal" style="z-index: 1001;">
+        <div class="modal-content" style="max-width: 600px; height: auto; max-height: 80vh;">
+            <div class="modal-header">
+                <span class="close-privacy-modal close-modal">&times;</span>
+            </div>
+            <div class="modal-body custom-form-body" style="overflow-y: auto; text-align: left;">
+                <h2 data-i18n="privacy_title" style="margin-bottom: 16px; text-align: center;">KVKK Aydınlatma Metni</h2>
+                <div data-i18n="privacy_content" style="font-size: 13px; color: var(--text-secondary); line-height: 1.6;">
+                    <!-- Content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- i18n Script -->
+    <script>
+        const translations = {
+            tr: {
+                hero_badge: "ÇOK YAKINDA",
+                hero_title: "Gerçek Hayatta Sosyalleşmenin Yeni Yolu",
+                hero_subtitle: "Sanal dünyadan çık, gerçek insanlarla tanış, etkinliklere katıl ve anı yaşa. Mozared ile şehrin nabzını tut.",
+                hero_cta: "Ön Kayıt Ol",
+                waitlist_text: "kişi şimdiden yerini ayırttı!",
+                mock_1_title: "Kahve & Kitap Kulübü",
+                mock_1_desc: "Bugün, 15:00 • Kadıköy",
+                mock_2_title: "Yeni Eşleşme!",
+                mock_2_desc: "Ortak ilgi: Fotoğrafçılık",
+                feature_1_title: "Yakın Çevreni Keşfet",
+                feature_1_desc: "Sana en uygun insanları ve mekanları anında bul.",
+                feature_2_title: "Etkinliklere Katıl",
+                feature_2_desc: "Sosyal planların ve topluluk etkinlikleri tek adreste.",
+                feature_3_title: "Anlamlı Bağlantılar",
+                feature_3_desc: "Ortak ilgi alanlarına ve gerçek deneyimlere dayalı iletişim kur.",
+                feature_4_title: "Modern ve Güvenli",
+                feature_4_desc: "Senin kontrolünde, premium ve güven veren bir sosyal deneyim.",
+                how_title: "Nasıl Çalışır?",
+                how_1_title: "Profilini Oluştur",
+                how_1_desc: "İlgi alanlarını, hobilerini ve ne tarz etkinlikler aradığını belirle.",
+                how_2_title: "Keşfet ve Eşleş",
+                how_2_desc: "Sana en uygun etkinlikleri ve kafa dengi insanları yapay zeka destekli algoritmamızla bul.",
+                how_3_title: "Gerçek Hayatta Buluş",
+                how_3_desc: "Sanal sohbetleri kısa tut, doğrudan gerçek hayattaki etkinliklere katıl ve anı yaşa.",
+                why_title: "Neden Şimdi Kayıt Olmalısın?",
+                why_desc: "Mozared kapılarını açtığında içeride seni bekleyen ayrıcalıklar olacak. Erken davrananlar topluluğumuzun temelini oluşturacak.",
+                why_1_title: "İlk Erişim Avantajı",
+                why_1_desc: "Uygulama yayına girdiğinde ilk deneyenlerden ol.",
+                why_2_title: "Sürpriz Ödüller",
+                why_2_desc: "Ön kayıt olanlara özel premium özellikler ve rozetler.",
+                why_3_title: "Kurucu Topluluk",
+                why_3_desc: "İlk üyelerimizden biri olarak platformun kültürüne yön ver.",
+                why_4_title: "Özel Etkinlikler",
+                why_4_desc: "Sadece üyelere açık gizli buluşmalara katılma şansı.",
+                why_cta: "Hemen Yerini Ayırt",
+                faq_title: "Sıkça Sorulan Sorular",
+                faq_1_q: "Mozared nedir?",
+                faq_1_a: "Mozared, dijital dünyadan sıyrılıp gerçek hayatta ortak ilgi alanlarına sahip insanlarla buluşmanı sağlayan yeni nesil bir sosyal platformdur.",
+                faq_2_q: "Uygulama ne zaman çıkacak?",
+                faq_2_a: "Şu an kapalı beta sürecindeyiz. Ön kayıt olan kullanıcılarımıza çok yakında özel davetiyeler göndermeye başlayacağız.",
+                faq_3_q: "Ön kayıt olmak ücretli mi?",
+                faq_3_a: "Hayır, ön kayıt tamamen ücretsizdir. Üstelik erken kayıt olanlara özel sürpriz avantajlar sunulacaktır.",
+                faq_4_q: "Hangi şehirlerde kullanılabilecek?",
+                faq_4_a: "Mozared tüm dünyada kullanıma açık olacak! Nerede olursanız olun, etrafınızdaki etkinlikleri ve insanları keşfedebileceksiniz.",
+                faq_5_q: "Etkinlikleri kimler oluşturuyor?",
+                faq_5_a: "Etkinlikler hem Mozared ekibi hem de onaylı topluluk liderleri ve mekan partnerlerimiz tarafından oluşturulmaktadır.",
+                faq_6_q: "Güvenliğimi nasıl sağlıyorsunuz?",
+                faq_6_a: "Tüm kullanıcı profilleri yapay zeka destekli sistemlerimiz ve moderasyon ekibimiz tarafından doğrulanır. Ayrıca etkinlikler güvenilir, halka açık mekanlarda gerçekleşir.",
+                faq_7_q: "Sadece arkadaş bulmak için mi?",
+                faq_7_a: "Hayır, Mozared hem yeni arkadaşlar edinmek hem de romantik eşleşmeler yakalamak veya profesyonel ağınızı (networking) genişletmek için farklı modlar sunar.",
+                faq_8_q: "Profilimi kimler görebilir?",
+                faq_8_a: "Profiliniz sadece sizinle aynı etkinliklere katılan veya ortak ilgi alanlarına sahip olduğunuz eşleştiğiniz kişiler tarafından görüntülenebilir.",
+                faq_9_q: "Yaş sınırı var mı?",
+                faq_9_a: "Evet, platformumuzu kullanabilmek için 18 yaşını doldurmuş olmanız gerekmektedir.",
+                faq_10_q: "Uygulama içi satın alma olacak mı?",
+                faq_10_a: "Temel özellikler her zaman ücretsiz kalacak. Ancak daha gelişmiş filtreleme ve özel etkinliklere erişim için premium üyelik seçenekleri sunacağız.",
+                faq_11_q: "Ön kayıt avantajları tam olarak neler?",
+                faq_11_a: "Ön kayıt olanlar, uygulama yayınlandığında ilk giriş hakkına, profilinde sergilenecek özel 'Kurucu Üye' rozetine ve ilk premium etkinliklere ücretsiz katılım şansına sahip olacaklar.",
+                footer_rights: "© 2024 Mozared. Tüm hakları saklıdır.",
+                modal_title: "Yerini Ayırt",
+                modal_desc: "Açılış duyurusu ve sürpriz ödüller için iletişim bilgilerini bırak.",
+                form_email_label: "E-posta Adresi *",
+                form_phone_label: "Telefon Numarası *",
+                form_email_placeholder: "ornek@email.com",
+                form_phone_placeholder: "05XX XXX XX XX",
+                form_kvkk: "<a href='#' class='open-privacy-btn' style='color: var(--brand-primary); text-decoration: underline;'>KVKK Aydınlatma Metni</a>'ni okudum ve kişisel verilerimin işlenmesine açık rıza gösteriyorum. *",
+                form_marketing: "Tarafıma kampanya ve duyurularla ilgili ticari elektronik ileti gönderilmesine onay veriyorum. *",
+                form_submit: "Ön Kayıt Ol",
+                form_loading: "Kaydediliyor...",
+                form_success: "Kaydınız başarıyla alındı! Teşekkür ederiz.",
+                form_error: "Bir hata oluştu. Lütfen tekrar deneyin.",
+                form_unavailable: "Sistem şu an kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
+                privacy_title: "KVKK Aydınlatma Metni",
+                privacy_content: "<strong>1. Veri Sorumlusu</strong><br>Mozared olarak kişisel verilerinizin güvenliğine önem veriyoruz. 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) uyarınca veri sorumlusu sıfatıyla hareket etmekteyiz.<br><br><strong>2. İşlenen Kişisel Veriler ve İşleme Amaçları</strong><br>Ön kayıt formunda paylaştığınız ad, e-posta adresi ve telefon numarası verileriniz; uygulamanın yayınlanması hakkında size bilgi vermek, ön kayıt avantajlarını sağlamak ve onay vermeniz halinde kampanya/duyuru iletileri göndermek amacıyla işlenmektedir.<br><br><strong>3. Kişisel Verilerin Aktarımı</strong><br>Kişisel verileriniz, yasal zorunluluklar haricinde hiçbir üçüncü tarafla paylaşılmamaktadır. Verileriniz güvenli bulut sunucularında (Firebase) saklanmaktadır.<br><br><strong>4. İlgili Kişinin Hakları</strong><br>KVKK'nın 11. maddesi uyarınca; verilerinizin işlenip işlenmediğini öğrenme, silinmesini veya düzeltilmesini talep etme haklarına sahipsiniz. Haklarınızı kullanmak için bizimle iletişime geçebilirsiniz."
+            },
+            en: {
+                hero_badge: "COMING SOON",
+                hero_title: "The New Way to Socialize in Real Life",
+                hero_subtitle: "Step out of the virtual world, meet real people, join events, and live in the moment. Feel the city's pulse with Mozared.",
+                hero_cta: "Pre-Register Now",
+                waitlist_text: "people already reserved their spot!",
+                mock_1_title: "Coffee & Book Club",
+                mock_1_desc: "Today, 3:00 PM • Downtown",
+                mock_2_title: "New Match!",
+                mock_2_desc: "Shared interest: Photography",
+                feature_1_title: "Discover Your Surroundings",
+                feature_1_desc: "Instantly find the best people and places for you.",
+                feature_2_title: "Join Events",
+                feature_2_desc: "Your social plans and community events in one place.",
+                feature_3_title: "Meaningful Connections",
+                feature_3_desc: "Communicate based on shared interests and real experiences.",
+                feature_4_title: "Modern and Secure",
+                feature_4_desc: "A premium, secure social experience under your control.",
+                how_title: "How it Works?",
+                how_1_title: "Create Your Profile",
+                how_1_desc: "Select your interests, hobbies, and the types of events you are looking for.",
+                how_2_title: "Discover & Match",
+                how_2_desc: "Find the best events and like-minded people with our AI-powered algorithm.",
+                how_3_title: "Meet in Real Life",
+                how_3_desc: "Keep virtual chats short, join real-life events directly, and live in the moment.",
+                why_title: "Why Register Now?",
+                why_desc: "Exclusive privileges await you when Mozared opens its doors. Early adopters will form the foundation of our community.",
+                why_1_title: "Early Access Advantage",
+                why_1_desc: "Be among the first to try the app when it launches.",
+                why_2_title: "Surprise Rewards",
+                why_2_desc: "Exclusive premium features and badges for pre-registered users.",
+                why_3_title: "Founding Community",
+                why_3_desc: "Shape the platform's culture as one of our first members.",
+                why_4_title: "Exclusive Events",
+                why_4_desc: "Chance to attend secret meetups open only to members.",
+                why_cta: "Reserve Your Spot Now",
+                faq_title: "Frequently Asked Questions",
+                faq_1_q: "What is Mozared?",
+                faq_1_a: "Mozared is a next-generation social platform that helps you step away from the digital world and meet people with shared interests in real life.",
+                faq_2_q: "When will the app be released?",
+                faq_2_a: "We are currently in closed beta. We will start sending exclusive invitations to pre-registered users very soon.",
+                faq_3_q: "Is pre-registration free?",
+                faq_3_a: "Yes, pre-registration is completely free. Plus, early registrants will receive special surprise benefits.",
+                faq_4_q: "Which cities will it be available in?",
+                faq_4_a: "Mozared will be available worldwide! No matter where you are, you'll be able to discover events and people around you.",
+                faq_5_q: "Who creates the events?",
+                faq_5_a: "Events are created by the Mozared team, approved community leaders, and our venue partners.",
+                faq_6_q: "How do you ensure my safety?",
+                faq_6_a: "All user profiles are verified by our AI-powered systems and moderation team. Additionally, events take place in safe, public venues.",
+                faq_7_q: "Is it only for finding friends?",
+                faq_7_a: "No, Mozared offers different modes for making new friends, finding romantic matches, or simply expanding your professional network.",
+                faq_8_q: "Who can see my profile?",
+                faq_8_a: "Your profile can only be seen by people attending the same events or those you match with based on shared interests.",
+                faq_9_q: "Is there an age limit?",
+                faq_9_a: "Yes, you must be at least 18 years old to use our platform.",
+                faq_10_q: "Will there be in-app purchases?",
+                faq_10_a: "Core features will always remain free. However, we will offer premium membership options for advanced filtering and access to exclusive events.",
+                faq_11_q: "What exactly are the pre-registration benefits?",
+                faq_11_a: "Pre-registered users will get first access when the app launches, a special 'Founding Member' badge on their profile, and a chance to attend the first premium events for free.",
+                footer_rights: "© 2024 Mozared. All rights reserved.",
+                modal_title: "Reserve Your Spot",
+                modal_desc: "Leave your contact info for launch announcements and surprise rewards.",
+                form_email_label: "Email Address *",
+                form_phone_label: "Phone Number *",
+                form_email_placeholder: "example@email.com",
+                form_phone_placeholder: "+1 XXX XXX XXXX",
+                form_kvkk: "I have read the <a href='#' class='open-privacy-btn' style='color: var(--brand-primary); text-decoration: underline;'>GDPR Privacy Policy</a> and explicitly consent to the processing of my personal data. *",
+                form_marketing: "I consent to receiving commercial electronic messages regarding campaigns and announcements. *",
+                form_submit: "Pre-Register",
+                form_loading: "Saving...",
+                form_success: "Your registration was successful! Thank you.",
+                form_error: "An error occurred. Please try again.",
+                form_unavailable: "System is currently unavailable. Please try again later.",
+                privacy_title: "GDPR Privacy Policy",
+                privacy_content: "<strong>1. Data Controller</strong><br>Mozared respects your privacy and is committed to protecting your personal data. We act as the data controller in accordance with the General Data Protection Regulation (GDPR).<br><br><strong>2. Data Collected and Purpose of Processing</strong><br>The personal data you provide in the pre-registration form (email address, phone number) is processed to manage your early access, notify you upon the app's launch, and (if consented) send you marketing communications.<br><br><strong>3. Data Sharing and Storage</strong><br>Your personal data is not shared with any third parties except where required by law. Your data is securely stored on cloud servers (Firebase).<br><br><strong>4. Your Data Subject Rights</strong><br>Under the GDPR, you have the right to access, rectify, erase, restrict processing, or object to the processing of your personal data. To exercise these rights, please contact us."
+            }
+        };
+
+        const userLang = navigator.language || navigator.userLanguage;
+        const lang = userLang.toLowerCase().startsWith('tr') ? 'tr' : 'en';
+
+        document.documentElement.lang = lang;
+        document.title = lang === 'tr' ? "Mozared - Gerçek Hayatta Sosyalleşmenin Yeni Yolu" : "Mozared - The New Way to Socialize in Real Life";
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (translations[lang][key]) {
+                el.placeholder = translations[lang][key];
+            }
+        });
+        
+        // Make translations available globally for the form script
+        window.appTranslations = translations[lang];
+    </script>
+
+    <script type="module">
+        // Firebase Setup (User needs to replace with actual config)
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // TODO: Replace with your actual Firebase config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        let app, db;
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+        } catch (e) {
+            console.warn("Firebase is not configured yet. Please update the config in index.html.");
+        }
+
+        // Form Logic
+        const form = document.getElementById('preRegisterForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formMessage = document.getElementById('formMessage');
+        const t = window.appTranslations;
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                if (!db) {
+                    formMessage.textContent = t.form_unavailable;
+                    formMessage.className = "error-msg";
+                    formMessage.style.display = "block";
+                    return;
+                }
+
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const kvkk = document.getElementById('kvkk').checked;
+                const marketing = document.getElementById('marketing').checked;
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = t.form_loading;
+                formMessage.style.display = "none";
+
+                try {
+                    await addDoc(collection(db, "pre_registrations"), {
+                        email: email,
+                        phone: phone,
+                        consentKVKK: kvkk,
+                        consentMarketing: marketing, // Now guaranteed to be true by HTML 'required' and Firestore rules
+                        createdAt: serverTimestamp()
+                    });
+
+                    form.reset();
+                    formMessage.textContent = t.form_success;
+                    formMessage.className = "success-msg";
+                    formMessage.style.display = "block";
+                    submitBtn.textContent = t.form_submit;
+                    submitBtn.disabled = false;
+                    
+                    // Confetti Effect
+                    if (typeof confetti === 'function') {
+                        confetti({
+                            particleCount: 100,
+                            spread: 70,
+                            origin: { y: 0.6 },
+                            colors: ['#EB3428', '#D1242A', '#FF8C00', '#10B981']
+                        });
+                    }
+                } catch (error) {
+                    console.error("Error adding document: ", error);
+                    formMessage.textContent = t.form_error;
+                    formMessage.className = "error-msg";
+                    formMessage.style.display = "block";
+                    submitBtn.textContent = t.form_submit;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+    </script>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById("registerModal");
+        const openBtns = document.querySelectorAll(".open-modal-btn, a[href='#register']");
+        const closeBtn = document.querySelector(".close-modal");
+
+        openBtns.forEach(btn => {
+            btn.addEventListener("click", function(e) {
+                e.preventDefault();
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden"; // Prevent background scrolling
+            });
+        });
+
+        closeBtn.addEventListener("click", function() {
+            modal.classList.remove("active");
+            document.body.style.overflow = "auto";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target == modal) {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        // Privacy Modal Logic (Event Delegation)
+        const privacyModal = document.getElementById("privacyModal");
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('open-privacy-btn')) {
+                e.preventDefault();
+                privacyModal.classList.add('active');
+            }
+            if (e.target && e.target.classList.contains('close-privacy-modal')) {
+                privacyModal.classList.remove('active');
+            }
+            if (e.target === privacyModal) {
+                privacyModal.classList.remove('active');
+            }
+        });
+
+        // FAQ Logic
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.replace('ph-caret-up', 'ph-caret-down');
+                } else {
+                    // Close all other answers
+                    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                    document.querySelectorAll('.faq-question i').forEach(i => i.classList.replace('ph-caret-up', 'ph-caret-down'));
+                    
+                    answer.style.display = 'block';
+                    icon.classList.replace('ph-caret-down', 'ph-caret-up');
+                }
+            });
+        });
+
+        // Scroll Animation Logic
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter Animation Logic
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Start counter animation when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterEl = document.getElementById('waitlistCount');
+            if(counterEl) {
+                // Generate a random but believable number between 1200 and 1500
+                const targetNumber = Math.floor(Math.random() * (1500 - 1200 + 1)) + 1200;
+                animateValue(counterEl, 0, targetNumber, 2500);
+            }
+        });
+    </script>
+</body>
+</html>
