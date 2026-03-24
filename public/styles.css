@@ -162,3 +162,89 @@ p { color: var(--text-secondary); font-size: 12px; margin-bottom: 12px; }
 /* Animasyonlar */
 .reveal { opacity: 0; transform: translateY(10px); transition: all 0.4s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   DESKTOP DESIGN (min-width: 768px)
+   ========================================= */
+@media (min-width: 768px) {
+    /* Genel ve Container */
+    body { font-size: 16px; padding-top: 72px; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .section { padding: 80px 0; }
+    
+    /* Tipografi */
+    h1 { font-size: 56px; margin-bottom: 24px; line-height: 1.1; letter-spacing: -1.5px; }
+    h2 { font-size: 36px; margin-bottom: 48px; text-align: center; }
+    h3 { font-size: 20px; margin-bottom: 12px; }
+    p { font-size: 16px; margin-bottom: 20px; }
+    
+    /* Header */
+    .header { height: 72px; }
+    .header-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .logo-text { font-size: 24px; }
+    .header .btn { min-height: 44px !important; font-size: 14px !important; padding: 0 24px !important; }
+    
+    /* Hero Section */
+    .hero { padding-top: 64px; padding-bottom: 64px; }
+    .hero-container { flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 64px; }
+    .hero-visual { flex: 1; height: 500px; width: 100%; }
+    .hero-orb { width: 400px; height: 400px; }
+    .mock-card { width: 280px; padding: 20px; border-radius: 16px; gap: 16px; }
+    .mock-avatar, .mock-icon { width: 48px; height: 48px; font-size: 24px; }
+    .mock-text { font-size: 16px; margin-bottom: 4px; }
+    .mock-subtext { font-size: 13px; }
+    .card-1 { top: 60px; left: 0; }
+    .card-2 { bottom: 60px; right: 0; }
+    
+    .hero-content { flex: 1; text-align: left; align-items: flex-start; }
+    .hero-content .badge { font-size: 14px; padding: 8px 20px; margin-bottom: 32px; }
+    .hero-content .btn { width: auto; min-height: 56px; font-size: 16px; padding: 0 40px; margin-top: 24px !important; }
+    .waitlist-counter { margin-top: 40px; font-size: 15px; padding: 16px 32px; }
+    .counter-number { font-size: 20px; }
+    
+    /* Features Section */
+    .features-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .feature-card { padding: 40px 24px; }
+    .feature-icon { width: 56px; height: 56px; font-size: 28px; margin-bottom: 24px; }
+    .feature-card p { font-size: 14px; }
+    
+    /* How it Works Section */
+    .steps-container { flex-direction: row; gap: 32px; margin-top: 64px; }
+    .steps-container::before { top: 36px; bottom: auto; left: 0; right: 0; width: 100%; height: 2px; background: linear-gradient(to right, var(--brand-primary), var(--brand-light)); }
+    .step-item { flex: 1; flex-direction: column; align-items: center; text-align: center; gap: 32px; }
+    .step-number { width: 72px; height: 72px; font-size: 32px; margin: 0 auto; background: var(--bg-primary); }
+    .step-content { width: 100%; padding: 32px 24px; }
+    .step-item:hover .step-content { transform: translateY(-8px); }
+    .step-content h3 { font-size: 20px; margin-bottom: 16px; }
+    .step-content p { font-size: 15px; }
+    
+    /* Why Register Now Section */
+    .why-content { max-width: 900px; margin: 0 auto; }
+    .why-list { grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+    .why-list li { padding: 32px; flex-direction: row; text-align: left; gap: 24px; }
+    .why-list i { font-size: 40px; }
+    .why-list strong { font-size: 18px; margin-bottom: 8px; }
+    .why-list span { font-size: 15px; }
+    .why-action { margin-top: 48px !important; }
+    .why-action .btn { width: auto; min-height: 56px; font-size: 16px; padding: 0 48px; }
+    
+    /* FAQ Section */
+    .faq-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: start; }
+    .faq-item { padding: 24px; }
+    .faq-question { font-size: 16px; }
+    .faq-answer p { font-size: 15px; padding-left: 0; margin-top: 16px; }
+    
+    /* Footer */
+    .footer { padding: 64px 0 32px 0; margin-top: 64px; }
+    .footer-social a { font-size: 28px; }
+    .footer-bottom { font-size: 15px; margin-top: 32px; padding-top: 32px; }
+    
+    /* Modal */
+    .modal-content { height: auto; max-height: 90vh; border-radius: 24px; }
+    .custom-form-body { padding: 48px 40px 40px 40px; }
+    .form-group label { font-size: 14px; margin-bottom: 8px; }
+    .form-group input { padding: 16px 20px; font-size: 16px; }
+    .checkbox-group label { font-size: 13px; }
+    .checkbox-group input[type="checkbox"] { width: 20px; height: 20px; }
+    .modal-body .btn { min-height: 56px; font-size: 16px; margin-top: 24px !important; }
+}
