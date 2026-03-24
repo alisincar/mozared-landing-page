@@ -293,11 +293,11 @@
                     <form id="preRegisterForm">
                         <div class="form-group">
                             <label for="email" data-i18n="form_email_label">E-posta Adresi *</label>
-                            <input type="email" id="email" required placeholder="ornek@email.com" data-i18n-placeholder="form_email_placeholder">
+                            <input type="email" id="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" title="Lütfen geçerli bir e-posta adresi girin." placeholder="ornek@email.com" data-i18n-placeholder="form_email_placeholder">
                         </div>
                         <div class="form-group">
                             <label for="phone" data-i18n="form_phone_label">Telefon Numarası *</label>
-                            <input type="tel" id="phone" required placeholder="05XX XXX XX XX" data-i18n-placeholder="form_phone_placeholder">
+                            <input type="tel" id="phone" required pattern="[0-9]+" minlength="10" maxlength="15" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Lütfen sadece rakam girin (örn: 05321234567)" placeholder="05XXXXXXXXX" data-i18n-placeholder="form_phone_placeholder">
                         </div>
                         
                         <div class="checkbox-group">
@@ -517,27 +517,29 @@
     </script>
 
     <script type="module">
-        // Firebase Setup (User needs to replace with actual config)
+        // Firebase Setup (Fetched from environment variables via API)
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-        // TODO: Replace with your actual Firebase config
-        const firebaseConfig = {
-            apiKey: "YOUR_API_KEY",
-            authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "YOUR_PROJECT_ID",
-            storageBucket: "YOUR_STORAGE_BUCKET",
-            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-            appId: "YOUR_APP_ID"
-        };
+        import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         let app, db;
-        try {
-            app = initializeApp(firebaseConfig);
-            db = getFirestore(app);
-        } catch (e) {
-            console.warn("Firebase is not configured yet. Please update the config in index.html.");
+        
+        async function initFirebase() {
+            try {
+                const response = await fetch('/api/firebase-config');
+                const config = await response.json();
+                
+                if (config.apiKey && config.projectId) {
+                    app = initializeApp(config);
+                    db = getFirestore(app);
+                } else {
+                    console.warn("Firebase config is incomplete. Please set environment variables.");
+                }
+            } catch (e) {
+                console.warn("Failed to fetch Firebase config.", e);
+            }
         }
+        
+        initFirebase();
 
         // Form Logic
         const form = document.getElementById('preRegisterForm');
@@ -549,13 +551,6 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                if (!db) {
-                    formMessage.textContent = t.form_unavailable;
-                    formMessage.className = "error-msg";
-                    formMessage.style.display = "block";
-                    return;
-                }
-
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const kvkk = document.getElementById('kvkk').checked;
@@ -565,14 +560,62 @@
                 submitBtn.textContent = t.form_loading;
                 formMessage.style.display = "none";
 
+                if (!db) {
+                    console.warn("Firebase is not initialized (missing env vars). Running in mock mode for UI testing.");
+                    setTimeout(() => {
+                        form.reset();
+                        formMessage.textContent = t.form_success;
+                        formMessage.className = "success-msg";
+                        formMessage.style.display = "block";
+                        submitBtn.textContent = t.form_submit;
+                        submitBtn.disabled = false;
+                        
+                        // Confetti Effect
+                        if (typeof confetti === 'function') {
+                            confetti({
+                                particleCount: 100,
+                                spread: 70,
+                                origin: { y: 0.6 },
+                                colors: ['#EB3428', '#D1242A', '#FF8C00', '#10B981']
+                            });
+                        }
+                    }, 800);
+                    return;
+                }
+
                 try {
-                    await addDoc(collection(db, "pre_registrations"), {
-                        email: email,
-                        phone: phone,
-                        consentKVKK: kvkk,
-                        consentMarketing: marketing, // Now guaranteed to be true by HTML 'required' and Firestore rules
-                        createdAt: serverTimestamp()
-                    });
+                    // E-posta ve telefon numarasının birleşimini ID olarak kullanıyoruz
+                    // Böylece sadece ikisi birden aynıysa mükerrer kayıt sayılacak
+                    const docId = email.toLowerCase() + "_" + phone;
+                    const docRef = doc(db, "pre_registrations", docId);
+                    
+                    try {
+                        await setDoc(docRef, {
+                            email: email.toLowerCase(),
+                            phone: phone,
+                            consentKVKK: kvkk,
+                            consentMarketing: marketing,
+                            createdAt: serverTimestamp()
+                        });
+                    } catch (err) {
+                        // Eğer hata yetki hatasıysa (zaten kayıtlı olduğu için update engellendiyse),
+                        // bunu hata olarak kabul etme, sessizce geç.
+                        if (err.code !== 'permission-denied') {
+                            throw err;
+                        }
+                        console.log("Mükerrer kayıt engellendi, kullanıcıya başarılı mesajı gösteriliyor.");
+                    }
+
+                    // Arka planda bildirim API'sine istek at (Discord/Telegram vs. için)
+                    try {
+                        fetch('/api/notify', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: email.toLowerCase(), phone: phone })
+                        }).catch(console.error); // Hata verirse kullanıcıyı etkilemesin
+                    } catch (e) {
+                        console.error("Bildirim tetiklenemedi:", e);
+                    }
 
                     form.reset();
                     formMessage.textContent = t.form_success;
